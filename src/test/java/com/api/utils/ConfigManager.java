@@ -12,7 +12,7 @@ public class ConfigManager {
 	
 	//WAP to read the properties file from src/test/resources/config/config.properties
 	private static Properties prop= new Properties();	//Create the object of Properites class\
-	private static String path="config/config.properties";
+	private static String path="config//config.properties";
 	private static String env; 
 	private ConfigManager() 
 	{
@@ -35,8 +35,7 @@ public class ConfigManager {
 		{
 			path="config/config.qa.properties";
 			break;
-		}
-		
+		}		
 		case "uat":
 		{
 			path="config/config.uat.properties";
@@ -47,10 +46,10 @@ public class ConfigManager {
 		}
 		*/
 		switch(env) {
-		case "dev"  -> path="config/config.dev.properties"; 
-		case "qa"  -> path="config/config.qa.properties"; 
-		case "uat"  -> path="config/config.uat.properties"; 
-		default  -> path="config/config.qa.properties"; 
+		case "dev"  -> path="config//config.dev.properties"; 
+		case "qa"  -> path="config//config.qa.properties"; 
+		case "uat"  -> path="config//config.uat.properties"; 
+		default  -> path="config//config.qa.properties"; 
 		
 		}
 		
@@ -76,9 +75,7 @@ public class ConfigManager {
 	}
 	
 	public static String getProperty(String key) throws IOException
-	{
-		//load the Properties file using the load()
-		
+	{	//load the Properties file using the load()	
 		
 		return prop.getProperty(key);
 	}	
