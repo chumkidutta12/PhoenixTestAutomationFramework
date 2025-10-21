@@ -17,7 +17,6 @@ on:
         required: true
 
      suiteXmlFile:
-      env:
         description: "Testng Xml File"
         type: choice
         options: [testng.xml,smoke.xml,regression.xml]
