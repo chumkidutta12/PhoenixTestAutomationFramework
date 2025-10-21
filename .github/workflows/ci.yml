@@ -18,18 +18,17 @@ on:
       suiteXmlFile:
         description: "Testng Xml File"
         type: choice
-        options: [testng.xml, smoke.xml, regression.xml]
+        options: [testng.xml,smoke.xml,regression.xml]
         default: testng.xml
         required: true
     
 jobs:
   test:
-    name: Run TestNG Automation Tests
+   
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
