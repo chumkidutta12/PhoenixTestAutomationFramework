@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.api.constant.Role;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.ConfigManager;
+import com.api.utils.SpecUtil;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 
@@ -19,17 +20,11 @@ public class CountAPITest {
 	public void verifyCountAPIResponse() throws IOException
 	{
 		given()
-		.baseUri(ConfigManager.getProperty("BASE_URI"))
-		.and()
-		.header("Authorization", AuthTokenProvider.getToken(Role.FD))
-		.log().uri()
-		.log().method()
-		.log().headers()
+		.spec(SpecUtil.requestSpecWithAuth(Role.FD))
 		.when()
 		.get("/dashboard/count")
 		.then()
-		.log().all()
-		.statusCode(200)
+		.spec(SpecUtil.responseSpec_OK())
 		.body("message",Matchers.equalTo("Success"))
 		.time(Matchers.lessThan(1000L))
 		.body("data",Matchers.notNullValue())
@@ -44,16 +39,11 @@ public class CountAPITest {
 	public void countAPITest_MissingAuthToken() throws IOException
 	{
 		given()
-		.baseUri(ConfigManager.getProperty("BASE_URI"))
-		.and()
-		.log().uri()
-		.log().method()
-		.log().headers()
+		.spec(SpecUtil.requestSpec())
 		//.header("Authorization", AuthTokenProvider.getToken(Role.FD))
 		.when()
 		.get("/dashboard/count")
 		.then()
-		.log().all()
-		.statusCode(401);
+		.spec(SpecUtil.responseSpec_TEXT(401));
 	}
 }
