@@ -14,7 +14,7 @@ import java.io.IOException;
 import org.hamcrest.Matchers;
 
 import com.api.constant.Role;
-import com.api.pojo.UsersCredentials;
+import com.api.request.model.UsersCredentials;
 
 public class SpecUtil {
 // Static method

@@ -8,7 +8,7 @@ import org.hamcrest.Matchers;
 import io.restassured.http.ContentType;
 
 import com.api.constant.Role;
-import com.api.pojo.UsersCredentials;
+import com.api.request.model.UsersCredentials;
 
 public class AuthTokenProvider {
 	private AuthTokenProvider()

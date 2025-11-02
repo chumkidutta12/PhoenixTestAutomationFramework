@@ -9,11 +9,11 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import com.api.constant.Role;
-import com.api.pojo.CreateJobPayload;
-import com.api.pojo.Customer;
-import com.api.pojo.CustomerAddress;
-import com.api.pojo.CustomerProduct;
-import com.api.pojo.Problems;
+import com.api.request.model.CreateJobPayload;
+import com.api.request.model.Customer;
+import com.api.request.model.CustomerAddress;
+import com.api.request.model.CustomerProduct;
+import com.api.request.model.Problems;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.ConfigManager;
 import com.api.utils.SpecUtil;
@@ -31,7 +31,7 @@ public class CreateJobAPITest {
 		Customer customer=new Customer("Sabrina", "Lesch", "999-236-1523", "", "Adriel33@hotmail.com", "");
 		CustomerAddress customerAddress= new CustomerAddress("101", "Sunita Residency", "Hallur Road", "Sarjapur", "harlur","560102", "India", "Karnataka");
 		
-	   CustomerProduct customer_product= new CustomerProduct("2025-06-09T18:30:00.000Z","406647792741374","406647792741374","406647792741374","2025-06-09T18:30:00.000Z",3,3); 
+	   CustomerProduct customer_product= new CustomerProduct("2025-06-09T18:30:00.000Z","406647792745374","406647792745374","406647792745374","2025-06-09T18:30:00.000Z",3,3); 
 	   Problems problems=new Problems(2, "Testing");
 	   List<Problems> problemList=new ArrayList<Problems>();
 	   problemList.add(problems);
