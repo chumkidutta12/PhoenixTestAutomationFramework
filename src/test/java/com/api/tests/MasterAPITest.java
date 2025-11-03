@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class MasterAPITest {
 	
-	@Test
+	@Test(description="Verify if the master api is giving correct response.", groups= {"api", "regression", "smoke"})
 	public void masterAPITest() throws IOException
 	{
 		given()
@@ -38,7 +38,7 @@ public class MasterAPITest {
 	}
 	
 	
-	@Test
+	@Test(description="Verify if the master api is giving correct status code for invalid token.", groups= {"api","negative", "regression", "smoke"})
 	public void invalidTokenMasterAPITest() throws IOException
 	{
 		given()
