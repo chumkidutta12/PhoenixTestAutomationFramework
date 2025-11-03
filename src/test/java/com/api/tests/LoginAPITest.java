@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.*;
 
 import java.io.IOException;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.api.utils.ConfigManagerOld;
@@ -17,11 +18,19 @@ import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 
 public class LoginAPITest {
+	
+	UsersCredentials usercredentials;
+	
+	@BeforeMethod(description="Create the payload for the login API")
+	public void setup()
+	{	usercredentials = new UsersCredentials("iamfd", "password");
+		
+	}
 
-	@Test
+	@Test(description="Verify if the UserCredentials api response is shown correctly", groups= {"api", "regression", "smoke"})
 	public void loginAPITest() throws IOException {
 		//ConfigManager configManager= new ConfigManager();
-		UsersCredentials usercredentials = new UsersCredentials("iamfd", "password");
+		
 		
 		given()
 		.spec(SpecUtil.requestSpec(usercredentials))

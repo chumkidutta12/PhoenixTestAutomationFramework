@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.api.constant.Model;
@@ -30,12 +31,12 @@ import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 
 public class CreateJobAPITest {
+	CreateJobPayload createJobPayload;
 	
 	
-	@Test
-	public void createJobAPITest() throws IOException
+	@BeforeMethod(description="Creating createjob api request payload")
+	public void setup()
 	{
-		//Creating the CreateJobPayload Object
 		Customer customer=new Customer("Sabrina", "Lesch", "999-236-1523", "", "Adriel33@hotmail.com", "");
 		CustomerAddress customerAddress= new CustomerAddress("101", "Sunita Residency", "Hallur Road", "Sarjapur", "harlur","560102", "India", "Karnataka");
 		
@@ -44,8 +45,16 @@ public class CreateJobAPITest {
 	   List<Problems> problemList=new ArrayList<Problems>();
 	   problemList.add(problems);
 	   
-	   CreateJobPayload createJobPayload= new CreateJobPayload(ServiceLocation.SERVICE_LOCATION_A.getCode(), Platform.FRONT_DESK.getCode(),Warranty_Status.IN_WARRANTY.getCode(),OEM.GOOGLE.getCode(), customer, customerAddress, customer_product, problemList);
+	    createJobPayload= new CreateJobPayload(ServiceLocation.SERVICE_LOCATION_A.getCode(), Platform.FRONT_DESK.getCode(),Warranty_Status.IN_WARRANTY.getCode(),OEM.GOOGLE.getCode(), customer, customerAddress, customer_product, problemList);
 		 
+	}
+	
+	
+	@Test(description="Verify if the create job api is able to create Inwarranty job.", groups= {"api", "regression", "smoke"})
+	public void createJobAPITest() throws IOException
+	{
+		//Creating the CreateJobPayload Object
+		
 			
 		given()
 		.spec(SpecUtil.requestSpecWithAuth(Role.FD, createJobPayload))

@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class CountAPITest {
 
-	@Test
+	@Test(description="Verify if the count api is giving correct response.", groups= {"api", "regression", "smoke"})
 	public void verifyCountAPIResponse() throws IOException
 	{
 		given()
@@ -35,7 +35,7 @@ public class CountAPITest {
 		.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("response-schema/CountAPIResponseSchema-FD.json"));
 	}
 	
-	@Test
+	@Test(description="Verify if the count api is giving correct status code for invalid token.", groups= {"api","negative", "regression", "smoke"})
 	public void countAPITest_MissingAuthToken() throws IOException
 	{
 		given()
