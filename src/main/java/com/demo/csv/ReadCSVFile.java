@@ -21,7 +21,7 @@ public class ReadCSVFile {
 		 */
 		
 		
-		InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("testData/LoginCreds");	
+		InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("testData/LoginCreds.csv");	
 		InputStreamReader isr= new InputStreamReader(is);
 		
 		
