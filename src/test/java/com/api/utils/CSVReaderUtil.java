@@ -2,6 +2,7 @@ package com.api.utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 import java.util.List;
 
 import com.dataproviders.api.bean.UserBean;
@@ -18,11 +19,11 @@ public class CSVReaderUtil {
 	 */
 	
 	private CSVReaderUtil()
-	{ 
-		
+	{ //No one cane create object of CSVReaderUtil Outsid the class
+		// Singleton Class Constructos are private
 	}
 	
-public static void loadCSV(String pathOf) throws IOException, CsvException {
+public static Iterator<UserBean> loadCSV(String pathOf) throws IOException, CsvException {
 		
 		
 		InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("testData/LoginCreds.csv");	
@@ -35,6 +36,7 @@ public static void loadCSV(String pathOf) throws IOException, CsvException {
 		
 		List<UserBean> userList=csvToBean.parse();
 		System.out.println(userList);
+		return userList.iterator();
 
 	}
 }
