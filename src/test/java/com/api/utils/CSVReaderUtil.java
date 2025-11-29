@@ -23,20 +23,48 @@ public class CSVReaderUtil {
 		// Singleton Class Constructos are private
 	}
 	
-public static Iterator<UserBean> loadCSV(String pathOf) throws IOException, CsvException {
-		
-		
-		InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("testData/LoginCreds.csv");	
+	
+	public static <T> Iterator<T> loadCSV(String pathOfCSVFile, Class<T> bean) throws IOException, CsvException {
+			//testData/LoginCreds.csv
+			InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream(pathOfCSVFile);	
+			InputStreamReader isr= new InputStreamReader(is);
+			CSVReader csvReader= new CSVReader(isr);		//csvReader Constructor 
+			
+			// Write the code to Map the CSV to POJO			
+			//Class<UserBean> bean= UserBean.class;
+			
+			CsvToBean<T> csvToBean = new CsvToBeanBuilder(csvReader)
+					.withType(bean)
+					.withIgnoreEmptyLine(true)
+					.build();
+			
+			List<T> list=csvToBean.parse();
+			//System.out.println(list);
+			return list.iterator();
+
+		}
+	
+	
+	
+	
+/*public static Iterator<UserBean> loadCSV(String pathOfCSVFile) throws IOException, CsvException {
+			
+	//testData/LoginCreds.csv
+		InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream(pathOfCSVFile);	
 		InputStreamReader isr= new InputStreamReader(is);
 		CSVReader csvReader= new CSVReader(isr);		//csvReader Constructor 
 		
 		// Write the code to Map the CSV to POJO
-		CsvToBean<UserBean> csvToBean = new CsvToBeanBuilder(csvReader).withType(UserBean.class)
-				.withIgnoreEmptyLine(true).build();
+		CsvToBean<UserBean> csvToBean = new CsvToBeanBuilder(csvReader)
+				.withType(UserBean.class)
+				.withIgnoreEmptyLine(true)
+				.build();
 		
 		List<UserBean> userList=csvToBean.parse();
 		System.out.println(userList);
 		return userList.iterator();
 
 	}
+	
+	*/
 }
