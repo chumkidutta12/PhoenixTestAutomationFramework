@@ -49,10 +49,11 @@ public class DataProviderUtils {
 		return payloadList.iterator();
 	}
 	
-	@DataProvider(name="CreateJobAPIFakerDataProvider" , parallel= true)
-	public static Iterator<CreateJobPayload> createJobFakeDataProvider() throws IOException, CsvException
-	{
-		Iterator<CreateJobPayload> payloadIterator= FakerDataGenerator.generateFakeCreateJobData(100);
+	@DataProvider(name = "CreateJobAPIFakerDataProvider", parallel = true)
+	public static Iterator<CreateJobPayload> createJobFakeDataProvider() throws IOException, CsvException {
+		String fakerCount = System.getProperty("fakerCount", "5");
+		int fakerCountInt = Integer.parseInt(fakerCount);
+		Iterator<CreateJobPayload> payloadIterator = FakerDataGenerator.generateFakeCreateJobData(fakerCountInt);
 		return payloadIterator;
 	}
 }
