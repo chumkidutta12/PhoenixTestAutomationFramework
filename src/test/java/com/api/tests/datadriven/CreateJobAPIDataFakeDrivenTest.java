@@ -1,4 +1,4 @@
-package com.api.tests;
+package com.api.tests.datadriven;
 import static io.restassured.RestAssured.*;
 
 import java.io.IOException;
@@ -30,17 +30,16 @@ import com.api.utils.SpecUtil;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 
-public class CreateJobAPITest {
-	CreateJobPayload createJobPayload;
+public class CreateJobAPIDataFakeDrivenTest {
 	
-	
+	/*
 	@BeforeMethod(description="Creating createjob api request payload")
 	public void setup()
 	{
 		Customer customer=new Customer("Sabrina", "Lesch", "999-236-1523", "", "Adriel33@hotmail.com", "");
 		CustomerAddress customerAddress= new CustomerAddress("101", "Sunita Residency", "Hallur Road", "Sarjapur", "harlur","560102", "India", "Karnataka");
 		
-	   CustomerProduct customer_product= new CustomerProduct(DateTimeUtil.getTimeWithDaysAgo(10),"77647782745375","77647782745375","77647782745375",DateTimeUtil.getTimeWithDaysAgo(10), Product.NEXUS_2.getCode(),Model.NEXUS_2_BLUE.getCode()); 
+	   CustomerProduct customer_product= new CustomerProduct(DateTimeUtil.getTimeWithDaysAgo(10),"77647782745374","77647782745374","77647782745374",DateTimeUtil.getTimeWithDaysAgo(10), Product.NEXUS_2.getCode(),Model.NEXUS_2_BLUE.getCode()); 
 	   Problems problems=new Problems(Problem.SMARTPHONE_IS_RUNNING_SLOW.getCode(), "Testing");
 	   List<Problems> problemList=new ArrayList<Problems>();
 	   problemList.add(problems);
@@ -48,10 +47,15 @@ public class CreateJobAPITest {
 	    createJobPayload= new CreateJobPayload(ServiceLocation.SERVICE_LOCATION_A.getCode(), Platform.FRONT_DESK.getCode(),Warranty_Status.IN_WARRANTY.getCode(),OEM.GOOGLE.getCode(), customer, customerAddress, customer_product, problemList);
 		 
 	}
+	*/
 	
 	
-	@Test(description="Verify if the create job api is able to create Inwarranty job.", groups= {"api", "regression", "smoke"})
-	public void createJobAPITest() throws IOException
+	@Test(description="Verify if the create job api is able to create Inwarranty job.", groups= {"api", "regression", "datadriven", "faker"},
+			dataProviderClass= com.dataproviders.DataProviderUtils.class, 
+			dataProvider = "CreateJobAPIFakerDataProvider")
+	
+	
+	public void createJobAPITest(CreateJobPayload createJobPayload) throws IOException
 	{
 		//Creating the CreateJobPayload Object
 		
