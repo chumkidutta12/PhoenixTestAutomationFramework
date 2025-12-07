@@ -30,7 +30,7 @@ import com.api.utils.SpecUtil;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 
-public class CreateJobAPIDataFakeDrivenTest {
+public class CreateJobAPIJsonDataDrivenTest {
 	
 	/*
 	@BeforeMethod(description="Creating createjob api request payload")
@@ -52,7 +52,7 @@ public class CreateJobAPIDataFakeDrivenTest {
 	
 	@Test(description="Verify if the create job api is able to create Inwarranty job.", groups= {"api", "regression", "datadriven", "faker"},
 			dataProviderClass= com.dataproviders.DataProviderUtils.class, 
-			dataProvider = "CreateJobAPIFakerDataProvider")
+			dataProvider = "CreateJobAPIJsonDataProvider")
 	
 	
 	public void createJobAPITest(CreateJobPayload createJobPayload) throws IOException
