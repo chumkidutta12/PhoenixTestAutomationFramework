@@ -65,4 +65,11 @@ public class DataProviderUtils {
 			return JsonReaderUtil.loadJSON("testData/loginAPITestData.json", UsersCredentials[].class);
 		 
 	 }
+	
+	@DataProvider(name= "CreateJobAPIJsonDataProvider", parallel= true)
+	 public static Iterator<CreateJobPayload> CreateJobAPIJsonDataProvider() throws IOException, CsvException
+	 {
+			return JsonReaderUtil.loadJSON("testData/CreateJobAPIData.json", CreateJobPayload[].class);
+		 
+	 }
 }

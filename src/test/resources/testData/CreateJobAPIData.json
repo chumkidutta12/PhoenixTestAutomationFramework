@@ -1,0 +1,132 @@
+[
+	{
+    "mst_service_location_id": 0,
+    "mst_platform_id": 2,
+    "mst_warrenty_status_id": 1,
+    "mst_oem_id": 2,
+    "customer": {
+        "first_name": "Adan",
+        "last_name": "Macejkovic",
+        "mobile_number": "647-887-0846",
+        "mobile_number_alt": "",
+        "email_id": "Ned20@yahoo.com",
+        "email_id_alt": ""
+    },
+    "customer_address": {
+        "flat_number": "101",
+        "apartment_name": "Sunita Residency",
+        "street_name": "Hallur Road",
+        "landmark": "Sarjapur",
+        "area": "harlur",
+        "pincode": "560102",
+        "country": "India",
+        "state": "Karnataka"
+    },
+    "customer_product": {
+        "dop": "2025-06-09T18:30:00.000Z",
+        "serial_number": "503213364874331",
+        "imei1": "503213364874331",
+        "imei2": "503213364874331",
+        "popurl": "2025-06-09T18:30:00.000Z",
+        "product_id": 3,
+        "mst_model_id": 3
+    },
+    "problems": [
+        {
+            "id": 1,
+            "remark": "Battery Issue"
+        },
+		{
+		            "id": 2,
+		            "remark": "Not Working"
+		    }
+			
+    ]
+},
+
+	{
+    "mst_service_location_id": 0,
+    "mst_platform_id": 2,
+    "mst_warrenty_status_id": 1,
+    "mst_oem_id": 2,
+    "customer": {
+        "first_name": "Adan",
+        "last_name": "Macejkovic",
+        "mobile_number": "647-887-0846",
+        "mobile_number_alt": "",
+        "email_id": "Ned20@yahoo.com",
+        "email_id_alt": ""
+    },
+    "customer_address": {
+        "flat_number": "101",
+        "apartment_name": "Sunita Residency",
+        "street_name": "Hallur Road",
+        "landmark": "Sarjapur",
+        "area": "harlur",
+        "pincode": "560102",
+        "country": "India",
+        "state": "Karnataka"
+    },
+    "customer_product": {
+        "dop": "2025-06-09T18:30:00.000Z",
+        "serial_number": "503266364874331",
+        "imei1": "503266364874331",
+        "imei2": "503266364874331",
+        "popurl": "2025-06-09T18:30:00.000Z",
+        "product_id": 3,
+        "mst_model_id": 3
+    },
+    "problems": [
+        {
+            "id": 1,
+            "remark": "Battery Issue"
+        },
+		{
+		            "id": 2,
+		            "remark": "Not Working"
+		    }
+			
+    ]
+},
+		{
+	    "mst_service_location_id": 0,
+	    "mst_platform_id": 2,
+	    "mst_warrenty_status_id": 1,
+	    "mst_oem_id": 2,
+	    "customer": {
+	        "first_name": "Adan",
+	        "last_name": "Macejkovic",
+	        "mobile_number": "647-887-0846",
+	        "mobile_number_alt": "",
+	        "email_id": "Ned20@yahoo.com",
+	        "email_id_alt": ""
+	    },
+	    "customer_address": {
+	        "flat_number": "101",
+	        "apartment_name": "Sunita Residency",
+	        "street_name": "Hallur Road",
+	        "landmark": "Sarjapur",
+	        "area": "harlur",
+	        "pincode": "560102",
+	        "country": "India",
+	        "state": "Karnataka"
+	    },
+	    "customer_product": {
+	        "dop": "2025-06-09T18:30:00.000Z",
+	        "serial_number": "773213364874331",
+	        "imei1": "773213364874331",
+	        "imei2": "773213364874331",
+	        "popurl": "2025-06-09T18:30:00.000Z",
+	        "product_id": 3,
+	        "mst_model_id": 3
+	    },
+	    "problems": [
+	        {
+	            "id": 3,
+	            "remark": "Battery Issue"
+	        }			
+				
+	    ]
+	}
+
+]
