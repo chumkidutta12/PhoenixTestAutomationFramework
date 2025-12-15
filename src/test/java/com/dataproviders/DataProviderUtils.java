@@ -77,7 +77,26 @@ public class DataProviderUtils {
 	@DataProvider(name= "LoginAPIExcelDataProvider", parallel= true)
 	 public static Iterator<UsersCredentials> LoginAPIExcelDataProvider() throws IOException, CsvException
 	 {
-			return ExcelReaderUtil.loadTestData();
+			return ExcelReaderUtil.loadTestData("testData/PhoenixTestData.xlsx","LoginTestData", UsersCredentials.class);
 		 
+	 }
+	
+	@DataProvider(name= "CreateJobAPIExcelDataProvider", parallel= true)
+	 public static Iterator<CreateJobPayload> CreateJobAPIExcelDataProvider() throws IOException, CsvException
+	 {
+		Iterator<CreateJobBean> iterator= ExcelReaderUtil.loadTestData("testData/PhoenixTestData.xlsx", "CreateJobTestData",CreateJobBean.class);
+		List<CreateJobPayload> payloadList= new ArrayList<CreateJobPayload>();
+
+		CreateJobBean  tempBean;
+		CreateJobPayload tempPayload;
+		while(iterator.hasNext())
+		{
+			tempBean= iterator.next();
+			tempPayload= CreateJobBeanMapper.mapper(tempBean);
+			payloadList.add(tempPayload);
+		}
+		
+		return payloadList.iterator();
+		
 	 }
 }

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -10,6 +11,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.api.request.model.UsersCredentials;
+import com.dataproviders.api.bean.UserBean;
+import com.poiji.bind.Poiji;
 
 public class ExcelReaderUtil {
 	private ExcelReaderUtil()
@@ -17,11 +20,11 @@ public class ExcelReaderUtil {
 		
 	}
 	
-	public static Iterator<UsersCredentials> loadTestData() 
+	public static <T> Iterator<T> loadTestData(String xlsxFile, String sheetName, Class<T> clazz) 
 	{
 		//Apache POI OOXML Lib
 		InputStream is= Thread.currentThread().getContextClassLoader()
-					.getResourceAsStream("testData/PhoenixTestData.xlsx");
+					.getResourceAsStream(xlsxFile);		//xlsxFile ="testData/PhoenixTestData.xlsx"
 		
 	XSSFWorkbook myWorkBook = null;
 	try {
@@ -32,14 +35,14 @@ public class ExcelReaderUtil {
 	}
 	
 	//Focus on the Sheet
-	XSSFSheet mySheet = myWorkBook.getSheet("LoginTestData");
-	
-	
+	XSSFSheet mySheet = myWorkBook.getSheet(sheetName);			// "LoginTestData"
+	List<T> dataList= Poiji.fromExcel(mySheet, clazz);			 //clazz= 
+	return dataList.iterator();	
 	//Read the excel file -----> store in the ArrayList<UserCredentials>
 	
 	// I want to know the indexes for the username and password in our sheet!
 	
-	XSSFRow headerRows = mySheet.getRow(0);	//HeaderRows
+/*	XSSFRow headerRows = mySheet.getRow(0);	//HeaderRows
 	
 	int userNameIndex=-1;
 	int passwordIndex=-1;
@@ -68,7 +71,7 @@ public class ExcelReaderUtil {
 		}
 		 System.out.println(userList.iterator());
 		 return userList.iterator();
-
+*/
 	}
 
 }

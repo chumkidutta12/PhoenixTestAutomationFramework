@@ -27,12 +27,12 @@ public class LoginAPIExcelDataDrivenTest {
 	@Test(description="Verify if the login api  is working for FD user", groups= {"api", "regression", "smoke", "datadriven"}, 
 						dataProviderClass= com.dataproviders.DataProviderUtils.class,
 						dataProvider="LoginAPIExcelDataProvider" )
-	public void loginAPITest(UsersCredentials userCredentials) throws IOException{
+	public void loginAPITest(UserBean userBean) throws IOException{
 		//ConfigManager configManager= new ConfigManager();
 		
 		
 		given()
-		.spec(SpecUtil.requestSpec(userCredentials))
+		.spec(SpecUtil.requestSpec(userBean))
 				.and()
 				//.body(usercredentials)
 				.when()
