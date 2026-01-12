@@ -62,7 +62,7 @@ public class DatabaseManager //throws IOException
         	Connection connection=null;
         	if(hikariDataSource==null)
         	{
-        		initializePool();		//Automatic Initialization of HikariDataSource
+        		initializePool();		//Automatic Initialization of HikariDataSource s
         	}
         	else if(hikariDataSource.isClosed())
         	{

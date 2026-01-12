@@ -20,7 +20,7 @@ public class HikariCPDemo {
 		hikariConfg.setMaximumPoolSize(10);
 		hikariConfg.setMinimumIdle(2);
 		hikariConfg.setConnectionTimeout(10000);     //10secs
-		hikariConfg.setMaxLifetime(1800000);		//30 mins
+		hikariConfg.setMaxLifetime(1800000);		 //30 mins
 		hikariConfg.setPoolName("Phoenix Test Automation Framework Pool");
 		
 		

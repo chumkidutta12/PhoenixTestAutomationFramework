@@ -14,7 +14,7 @@ public class DatabaseManagerOLD //throws IOException
     	private static final String DB_USERNAME= ConfigManager.getProperty("DB_USERNAME");
     	private static final String DB_PASSWORD= ConfigManager.getProperty("DB_PASSWORD");
     	
-    	private volatile static Connection conn;	//Any updates that happens to this conn variable, all threads will be aware of it!!
+    	private volatile static Connection conn;	//Any  updates that happens to this conn variable, all threads will be aware of it!!
     
 		
         private DatabaseManagerOLD()

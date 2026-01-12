@@ -9,6 +9,7 @@ public class DemoRunner_CheckingOfHikariDataBaseManager {
 	public static void main(String[] args) throws SQLException, IOException {
 		Connection conn= DatabaseManager.getConnection();
 		System.out.println(conn);
+		
 	}
 
 
